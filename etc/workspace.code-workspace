@@ -1,0 +1,17 @@
+{
+    "folders": [
+      {
+        "path": "../frontend"
+      },
+      {
+        "path": "."
+      },
+      {
+        "path": "../backend"
+      }
+    ],
+    "settings": {
+      "java.configuration.updateBuildConfiguration": "automatic",
+      "typescript.format.enable": true
+    }
+  }
