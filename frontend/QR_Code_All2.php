@@ -30,10 +30,10 @@
             
             // $getUser = $conn->get_User();
             $data =  $_SESSION['data_user'];
-            echo $data['name']; 
+            // echo $data['name']; 
             $conn->Show_QRCode();
             $qrcodeall = $_SESSION['QR_Coce_ALL'];
-            echo $qrcodeall[0]['eventid']['eventname'];
+            // echo $qrcodeall[0]['eventid']['eventname'];
 
             
             // $product = 
@@ -237,7 +237,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -265,8 +265,8 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">คิวอาร์โค้ด ทั้งหมด</h1>  
-                <a href="#" data-toggle="modal" data-target="#Add_Activity" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i>  สร้างกิจกรรม</a>  
+                <!-- <a href="#" data-toggle="modal" data-target="#Add_Activity" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i>  สร้างกิจกรรม</a>   -->
             </div>
 
         </div>

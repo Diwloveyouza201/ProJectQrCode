@@ -235,7 +235,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -273,19 +273,15 @@
         <div class="container-fluid">
 
                      <div class="row"> 
-
                     <?php
                     $i=0;
                      while($i<count($product) ): ?>
-                     <?php if($product[$i]['userid']['user_ID'] == $data['user_ID']){?>
-
-                 
-                        
-                        
+                     <?php if($product[$i]['userid']['user_ID'] == $data['user_ID']&&$product[$i]['eventdelet']==1&&$product[$i]['eventstatus']==1){?>
                         
                             <div class="col-xl-4 col-lg-5">
                                     <div class="card shadow mb-4">
-                                    <img src="Image\IMG_0884.png" alt="Avatar"  >            
+                                    <!-- <img src="Image\IMG_0884.png" alt="Avatar"  >  -->
+                                    <img src="<?php echo $product[$i]['eventimage']; ?>"   alt="Avatar">           
                                     <div class="card-body">
                                             <h3 class="card-title"><?php echo $product[$i]['eventname'];?></h3>
                                             <h6 class="card-title"><?php echo "จำนวน ".$product[$i]['eventpeople']." คน";?></h5>
@@ -295,7 +291,12 @@
                                            
                                             <div align="right" >
                                             
-                                            <a class="btn btn-outline-primary" href="data_Activity2.php?event=<?php echo $i?> ">รายละเอียดเพิ่มเติม</a>
+                                             <form action="ChackData.php?Status=chackuser&eventid=<?php echo $product[$i]['event_id']; ?>" method="POST" style="padding-top: 0px;" enctype="multipart/form-data">
+                                                <div align="right">
+                                                    <!-- <s class="btn btn-outline-primary" href="#">รายละเอียดเพิ่มเติม</s> -->
+                                                    <input class="btn btn-outline-success" type="submit" value="รายละเอียดเพิ่มเติม"></input>
+                                                </div>
+                                                </form>
                                             
                                             
                                             </div>

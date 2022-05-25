@@ -30,10 +30,10 @@
             
             // $getUser = $conn->get_User();
             $data =  $_SESSION['data_user'];
-            echo $data['name']; 
+            // echo $data['name']; 
             $conn->Show_QRCode();
             $qrcodeall = $_SESSION['QR_Coce_ALL'];
-            echo $qrcodeall[0]['userid']['user_ID'];
+            // echo $qrcodeall[0]['userid']['user_ID'];
             $product = $_SESSION['showevent'];
 
             
@@ -238,7 +238,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -265,9 +265,9 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">คที่ยังไม่เข้าร่วม</h1>  
-                <a hre  f="#" data-toggle="modal" data-target="#Add_Activity" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i>  สร้างกิจกรรม</a>  
+                <h1 class="h3 mb-0 text-gray-800">คิวอาร์โค้ดที่ยังไม่เข้าร่วม</h1>  
+                <!-- <a hre  f="#" data-toggle="modal" data-target="#Add_Activity" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i>  สร้างกิจกรรม</a>   -->
             </div>
         </div>
         <!-- /.container-fluid -->
@@ -276,7 +276,7 @@
                         <?php
                          $i=0;
                          while($i<count($qrcodeall) ): ?>
-                         <?php if($qrcodeall[$i]['userid']['user_ID'] == $data['user_ID'] & $qrcodeall[$i]['qrcodeeventstatus'] == 1){?>
+                         <?php if($qrcodeall[$i]['userid']['user_ID'] == $data['user_ID'] & $qrcodeall[$i]['qrcodeeventstatus'] == 0){?>
                             <div class="col-xl-4 col-lg-5">
                                     <div class="card shadow mb-4">
                                     <img src="<?php echo $qrcodeall[$i]['qrcodepath'];?>" alt="Avatar"  >            
@@ -284,7 +284,7 @@
                                             <h3 class="card-title"><?php echo $qrcodeall[$i]['eventid']['eventname'];?></h3>
                                             <div align="right" >
                                             
-                                            <a class="btn btn-outline-primary" href="Data_QR.php?Qrcode_ID=<?php echo $i;?>">รายละเอียดเพิ่มเติม</a>
+                                            <a class="btn btn-outline-primary" href="ChackData.php?Status=dataQr&idqr=<?php echo $qrcodeall[$i]['qrcode_ID']; ?>">รายละเอียดเพิ่มเติม</a>
                                             
                                             </div>
                                         </div>

@@ -26,17 +26,20 @@
 
 <body id="Data_QR">
         <?php   
-             $Qrcode_ID = $_REQUEST["Qrcode_ID"];
-             echo $Qrcode_ID;
+          
+
+            //  echo $Qrcode_ID;
             $conn = new dbconnect();
-            echo $Qrcode_ID;
+            $Qrcode_ID = $_SESSION['dataQrCode'];
+            // echo  $Qrcode_ID['qrcodestatus'];
+            // echo $Qrcode_ID;
             // $getUser = $conn->get_User();
             $data =  $_SESSION['data_user'];
-            echo $data['name']; 
+            // echo $data['name']; 
             $conn->Show_QRCode();
             $qrcodeall = $_SESSION['QR_Coce_ALL'];
-            echo $qrcodeall[0]['eventid']['eventname'];
-            $currentqrcode = $qrcodeall[$Qrcode_ID];
+            // echo $qrcodeall[0]['eventid']['eventname'];
+            // $currentqrcode = $qrcodeall[$Qrcode_ID];
 
         ?>
         <!-- Page Wrapper -->
@@ -281,41 +284,41 @@
                         // $product = $conn->getQR_Show($Qrcode_ID);
                         // $data_QR_Code = $product->fetch_assoc()
                         ?>
-                        <H1><?php echo $currentqrcode['eventid']['eventname'];?></H1> 
+                        <H1><?php echo  $Qrcode_ID['eventid']['eventname'];?></H1> 
                 </div>
                 <div class = "card-body"> <!-- card -->
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-4" style="max-width: 50% position: relative;">
-                            <img id="img_qrcode" src="<?php echo $currentqrcode['qrcodepath'];?>" class="img-fluid rounded-start" >
+                            <img id="img_qrcode" src="<?php echo $Qrcode_ID['qrcodepath'];?>" class="img-fluid rounded-start" >
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col"> 
-                                        <h7>วันที่ : <?php echo $currentqrcode['eventid']['eventdate'];?> ถึง <?php echo $currentqrcode['eventid']['eventdateend'];?></h7>
+                                        <h7>วันที่ : <?php echo $Qrcode_ID['eventid']['eventdate'];?> ถึง <?php echo $Qrcode_ID['eventid']['eventdateend'];?></h7>
                                     </div>
                                     <div class="col">
-                                        <h7>เวลา : <?php echo $currentqrcode['eventid']['eventtime'];?> ถึง <?php echo $currentqrcode['eventid']['eventtimeend'];?> </h7>
+                                        <h7>เวลา : <?php echo $Qrcode_ID['eventid']['eventtime'];?> ถึง <?php echo $Qrcode_ID['eventid']['eventtimeend'];?> </h7>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col"> 
-                                        <h7>จำนวนคนรับสมัคร <?php echo $currentqrcode['eventid']['eventpeople'];?> คน</h7>
+                                        <h7>จำนวนคนรับสมัคร <?php echo $Qrcode_ID['eventid']['eventpeople'];?> คน</h7>
                                     </div>
                                     <div class="col">
-                                        <h7>ประเภทกิจกรรม : <?php echo $currentqrcode['eventid']['evenrtype'];?></h7>
+                                        <h7>ประเภทกิจกรรม : <?php echo $Qrcode_ID['eventid']['pEventModel']['typename'];?></h7>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col"> 
-                                        <h7>สถานที่ : <?php echo $currentqrcode['eventid']['evenrtype'];?></h7>
+                                        <h7>สถานที่ : <?php echo $Qrcode_ID['eventid']['evenrtype'];?></h7>
                                     </div>
                                     <div class="col">
-                                        <h7>จังหวัด : <?php echo $currentqrcode['eventid']['eventprovince'];?></h7>
+                                        <h7>จังหวัด : <?php echo $Qrcode_ID['eventid']['provinceModel']['provincename'];?></h7>
                                     </div>
                                 </div>
-                                        <?php echo"รายละเอียด : ".$currentqrcode['eventid']['eventparticulars'];?><br>
+                                        <?php echo"รายละเอียด : ".$Qrcode_ID['eventid']['eventparticulars'];?><br>
                             </div>
                             </div>
                         </div>

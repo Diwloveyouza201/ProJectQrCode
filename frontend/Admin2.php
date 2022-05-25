@@ -241,7 +241,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -306,7 +306,7 @@
                     <?php 
                     $i = 0;
                     while($i<count($getUser)): ?>   
-                    <?php if($getUser[$i]['adminuser'] == 0){ ?>
+                    <?php if($getUser[$i]['adminuser'] == 0&$getUser[$i]['userstatus'] == 1){ ?>
                       
                                     <tbody>
                                         <tr>
@@ -318,7 +318,7 @@
                                                 <td><?php echo $getUser[$i]['phone'];?></td>
                                                 <td><?php echo $getUser[$i]['lineid'];?></td>
                                                 <td><?php echo $getUser[$i]['email'];?>
-                                                <td><a class="btn btn-outline-primary"  href="ChackData.php?User_ID=12&Status=EditUser">ลบข้อมูลผู้ใช้</a></td>
+                                                <td><a class="btn btn-outline-primary"  href="ChackData.php?user_ID=<?php echo $getUser[$i]['user_ID'] ?>&Status=EditAdmin">ลบข้อมูลผู้ใช้</a></td>
                                             </tr>
                                     </tbody>
                                     <?php } ?>

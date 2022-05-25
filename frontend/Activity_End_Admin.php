@@ -237,7 +237,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -281,7 +281,7 @@
                      <?php if($product[$i]['eventstatus'] == 1){?>
                             <div class="col-xl-4 col-lg-5">
                                     <div class="card shadow mb-4">
-                                    <img src="Image\IMG_0884.png" alt="Avatar"  >            
+                                    <img src="<?php echo $product[$i]['eventimage']; ?>" alt="Avatar"  >            
                                     <div class="card-body">
                                             <h3 class="card-title"><?php echo $product[$i]['eventname'];?></h3>
                                             <h6 class="card-title"><?php echo "จำนวน ".$product[$i]['eventpeople']." คน";?></h5>

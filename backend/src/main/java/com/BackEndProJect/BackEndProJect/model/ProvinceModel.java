@@ -8,17 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="p_province")
+@Table(name = "p_province")
 public class ProvinceModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Province_ID;
-	
-	@Column(name="Province_Code")
+
+	@Column(name = "Province_Code")
 	private String provincecode;
-	
-	@Column(name="Province_Name")
+
+	@Column(name = "Province_Name")
 	private String provincename;
 
 	public int getProvince_ID() {
@@ -55,7 +55,5 @@ public class ProvinceModel {
 	public ProvinceModel() {
 		super();
 	}
-	
-	
-	
+
 }

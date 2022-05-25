@@ -27,6 +27,30 @@ public class EventModel {
 	@ManyToOne
 	private ProvinceModel provinceModel;
 	
+	public EventModel(int event_id, UserModel userid,  ProvinceModel provinceModel,
+			PEventModel pEventModel, String eventname, int eventpeople, String eventparticulars, String eventprovince,
+			String eventlocation, String eventdate, String eventdateend, String eventtime, String eventtimeend,
+			String eventimage, String evenrtype, byte eventstatus, byte eventdelet) {
+		this.event_id = event_id;
+		this.userid = userid;
+
+		this.provinceModel = provinceModel;
+		this.pEventModel = pEventModel;
+		this.eventname = eventname;
+		this.eventpeople = eventpeople;
+		this.eventparticulars = eventparticulars;
+		this.eventprovince = eventprovince;
+		this.eventlocation = eventlocation;
+		this.eventdate = eventdate;
+		this.eventdateend = eventdateend;
+		this.eventtime = eventtime;
+		this.eventtimeend = eventtimeend;
+		this.eventimage = eventimage;
+		this.evenrtype = evenrtype;
+		this.eventstatus = eventstatus;
+		this.eventdelet = eventdelet;
+	}
+
 	@JoinColumn(name="Pevent_ID ")
 	@ManyToOne
 	private PEventModel pEventModel;
@@ -203,30 +227,6 @@ public class EventModel {
 	}
 
 	public void setEventdelet(byte eventdelet) {
-		this.eventdelet = eventdelet;
-	}
-
-	public EventModel(int event_id, UserModel userid, ProvinceModel provinceModel, PEventModel pEventModel,
-			String eventname, int eventpeople, String eventparticulars, String eventprovince, String eventlocation,
-			String eventdate, String eventdateend, String eventtime, String eventtimeend, String eventimage,
-			String evenrtype, byte eventstatus, byte eventdelet) {
-		super();
-		this.event_id = event_id;
-		this.userid = userid;
-		this.provinceModel = provinceModel;
-		this.pEventModel = pEventModel;
-		this.eventname = eventname;
-		this.eventpeople = eventpeople;
-		this.eventparticulars = eventparticulars;
-		this.eventprovince = eventprovince;
-		this.eventlocation = eventlocation;
-		this.eventdate = eventdate;
-		this.eventdateend = eventdateend;
-		this.eventtime = eventtime;
-		this.eventtimeend = eventtimeend;
-		this.eventimage = eventimage;
-		this.evenrtype = evenrtype;
-		this.eventstatus = eventstatus;
 		this.eventdelet = eventdelet;
 	}
 

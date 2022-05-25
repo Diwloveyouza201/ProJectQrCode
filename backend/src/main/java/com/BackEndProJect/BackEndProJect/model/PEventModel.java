@@ -8,17 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="p_event")
+@Table(name = "p_event")
 public class PEventModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Pre_ID;
-	
-	@Column(name="Status_Code")
+
+	@Column(name = "Status_Code")
 	private String statuscode;
-	
-	@Column(name="Type_Name")
+
+	@Column(name = "Type_Name")
 	private String typename;
 
 	public int getPre_ID() {
@@ -55,7 +55,5 @@ public class PEventModel {
 	public PEventModel() {
 		super();
 	}
-	
-	
-	
+
 }

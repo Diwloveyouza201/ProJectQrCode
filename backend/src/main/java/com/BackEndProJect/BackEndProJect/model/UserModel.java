@@ -8,45 +8,80 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class UserModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int User_ID;
-	
-	@Column(name="Username")
+
+	@Column(name = "Username")
 	private String username;
-	
-	@Column(name="Password")
+
+	@Column(name = "Password")
 	private String password;
-	
-	@Column(name="Email")
+
+	@Column(name = "Email")
 	private String email;
-	
-	@Column(name="Name")
+
+	@Column(name = "Name")
 	private String name;
-	
-	@Column(name="nick_name")
+
+	@Column(name = "nick_name")
 	private String nickname;
-	
-	@Column(name="Gender")
+
+	@Column(name = "Gender")
 	private String gender;
-	
-	@Column(name="Age")
+
+	@Column(name = "Age")
 	private String age;
-	
-	@Column(name="Phone")
+
+	@Column(name = "Phone")
 	private String phone;
-	
-	@Column(name="Line_ID")
+
+	@Column(name = "Line_ID")
 	private String lineid;
-	
-	@Column(name="Image_Profile")
-	private String imageprofile;
-	
-	@Column(name="Admin_user")
+
+	@Column(name = "img_user")
+	private String imguser;
+
+	@Column(name = "Admin_user")
 	private byte adminuser;
+
+	@Column(name = "User_Status")
+	private byte userstatus;
+
+	public UserModel() {
+	}
+
+	public UserModel(String imguser) {
+		this.imguser = imguser;
+	}
+
+	public String getImguser() {
+		return imguser;
+	}
+
+	public void setImguser(String imguser) {
+		this.imguser = imguser;
+	}
+
+	public UserModel(int user_ID, String username, String password, String email, String name, String nickname,
+			String gender, String age, String phone, String lineid, byte adminuser,
+			byte userstatus) {
+		User_ID = user_ID;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.name = name;
+		this.nickname = nickname;
+		this.gender = gender;
+		this.age = age;
+		this.phone = phone;
+		this.lineid = lineid;
+		this.adminuser = adminuser;
+		this.userstatus = userstatus;
+	}
 
 	public int getUser_ID() {
 		return User_ID;
@@ -128,14 +163,6 @@ public class UserModel {
 		this.lineid = lineid;
 	}
 
-	public String getImageprofile() {
-		return imageprofile;
-	}
-
-	public void setImageprofile(String imageprofile) {
-		this.imageprofile = imageprofile;
-	}
-
 	public byte getAdminuser() {
 		return adminuser;
 	}
@@ -144,27 +171,12 @@ public class UserModel {
 		this.adminuser = adminuser;
 	}
 
-	public UserModel(int user_ID, String username, String password, String email, String name, String nickname,
-			String gender, String age, String phone, String lineid, String imageprofile, byte adminuser) {
-		super();
-		User_ID = user_ID;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.name = name;
-		this.nickname = nickname;
-		this.gender = gender;
-		this.age = age;
-		this.phone = phone;
-		this.lineid = lineid;
-		this.imageprofile = imageprofile;
-		this.adminuser = adminuser;
+	public byte getUserstatus() {
+		return userstatus;
 	}
 
-	public UserModel() {
-		super();
+	public void setUserstatus(byte userstatus) {
+		this.userstatus = userstatus;
 	}
 
-	
-	
 }

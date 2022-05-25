@@ -39,7 +39,7 @@
                 // echo $suppersum[0]['user_ID'];
                 $conn->getUser();
                 $getUser = $_SESSION['showUser'];
-                echo $getUser[0]['username'];
+                // echo $getUser[0]['username'];
                 // echo $getUser;
                 // $product = 
         ?>
@@ -241,7 +241,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo  $data['name'];?></span>
                         <img class="img-profile rounded-circle"
-                            src="img/undraw_profile.svg">
+                            src="<?php echo $data['imguser']; ?>">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -307,11 +307,11 @@
                     $i = 0;
                     $n = 0;
                     while($i<count($getUser)): ?>   
-                     <?php if($getUser[$i]['adminuser'] == 1){ ?>
-                        <?php?>
+                     <?php if($getUser[$i]['adminuser'] == 1&$getUser[$i]['userstatus'] == 1){ ?>
+                        <?php $n++?>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo $i+1;?></td>
+                                            <td><?php echo $n ?></td>
                                                 <td><?php echo $getUser[$i]['name'];?></td>
                                                 <td><?php echo $getUser[$i]['nickname'];?></td>
                                                 <td><?php echo $getUser[$i]['gender'];?></td>
@@ -319,13 +319,14 @@
                                                 <td><?php echo $getUser[$i]['phone'];?></td>
                                                 <td><?php echo $getUser[$i]['lineid'];?></td>
                                                 <td><?php echo $getUser[$i]['email'];?>
-                                                <td><a class="btn btn-outline-primary"  href="ChackData.php?User_ID=12&Status=EditUser">ลบข้อมูลผู้ใช้</a></td>
+                                                <td><a class="btn btn-outline-primary" data-target="#Add_Register" href="ChackData.php?user_ID=<?php echo $getUser[$i]['user_ID'] ?>&Status=EditUser">ลบข้อมูลผู้ใช้</a></td>
                                             </tr>
                                     </tbody>
                                     <?php } ?>
 
                                     <?php $i++ ?>
                                     <?php endwhile ?> 
+                                    <?php echo "ผู้ใช้ทั้งหมด ".$n." คน" ?>
                                 <!-- </form>                 -->
                                 </table>
                             </div>
@@ -378,7 +379,6 @@
             </div>
         </div>
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

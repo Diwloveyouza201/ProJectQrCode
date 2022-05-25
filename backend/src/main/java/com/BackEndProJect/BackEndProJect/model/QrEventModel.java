@@ -7,35 +7,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="qr_event")
+@Table(name = "qr_event")
 public class QrEventModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Qrcode_ID;
-	
-//	@Column(name="User_ID ")
-	@JoinColumn(name="User_ID")
+
+	// @Column(name="User_ID ")
+	@JoinColumn(name = "User_ID")
 	@ManyToOne
 	private UserModel userid;
-	
-	
-//	@Column(name="Event_ID")
-	@JoinColumn(name="Event_ID")
+
+	// @Column(name="Event_ID")
+	@JoinColumn(name = "Event_ID")
 	@ManyToOne
 	private EventModel eventid;
-	
-	@Column(name="Qrcode_Status")
+
+	@Column(name = "Qrcode_Status")
 	private String qrcodestatus;
-	
-	@Column(name="Qrcode_Path")
+
+	@Column(name = "Qrcode_Path")
 	private String qrcodepath;
-	
-	@Column(name="Qrcode_Event_Status")
+
+	@Column(name = "Qrcode_Event_Status")
 	private byte qrcodeeventstatus;
 
 	public int getQrcode_ID() {
@@ -100,7 +98,5 @@ public class QrEventModel {
 	public QrEventModel() {
 		super();
 	}
-	
-	
-	
+
 }
